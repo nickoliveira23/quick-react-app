@@ -24,7 +24,15 @@ module.exports = { // Configurações do Webpack
       },
       {
         test: /\.css$/, // Expressão regular para encontrar arquivos .css
-        use: ['style-loader', 'css-loader'], // Usar os loaders css-loader e style-loader
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader', // Usar o css-loader
+            options: {
+              modules: true, // Habilitar CSS Modules
+            },
+          }
+        ], // Usar os loaders css-loader e style-loader
       },
     ]
   },
